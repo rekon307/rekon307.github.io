@@ -9,9 +9,17 @@
 # --- Required options --- #
 ############################
 
-# Name of website
+# Site Identity  
 title: AI Tools Daily
-affiliate_tag: "?ref=autoverse"
+baseurl: ""  # Leave empty if repo is USERNAME.github.io  
+url: "https://rekon307.github.io"  
+
+# Affiliate System  
+affiliate_tag: "?ref=autoverse"  # Your PartnerStack/affiliate ID  
+default_affiliate_link: "https://example.com/partner{{ page.affiliate_tag }}"  
+
+# Automation Flags  
+auto_scrape: true  
 
 # Your name to show in the footer
 author: Some Person
