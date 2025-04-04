@@ -1,0 +1,23 @@
+name: AI Content Machine  
+on:  
+  schedule:  
+    - cron: '0 6 * * *'  # 6 AM GMT daily  
+  workflow_dispatch:  
+
+jobs:  
+  generate:  
+    runs-on: ubuntu-latest  
+    steps:  
+      - uses: actions/checkout@v4  
+      - uses: actions/setup-python@v4  
+        with: {python-version: "3.10"}  
+      - name: Run Scraper  
+        env:  
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}  
+        run: |  
+          pip install feedparser requests  
+          python scrape.py  
+      - name: Commit Posts  
+        uses: EndBug/add-and-commit@v9  
+        with:  
+          message: "Auto-content: $(date +'%D')"  
