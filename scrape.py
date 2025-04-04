@@ -29,7 +29,7 @@ def light_post(source, content):
 """
 
 # Main script
-ph_feed = feedparser.parse('https://www.producthunt.com/feed/collection/ai-tools')
+ph_feed = feedparser.parse('https://www.producthunt.com/feed?category=ai')
 reddit_feed = feedparser.parse('https://www.reddit.com/r/AITools/new/.rss')
 
 # Process 3 posts/day (1 AI + 2 light)
